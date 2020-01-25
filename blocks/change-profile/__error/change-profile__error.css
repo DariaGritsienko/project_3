@@ -1,0 +1,12 @@
+.change-profile__error{
+  color: #FF0000;
+  font-size: 14px;
+  transition: .3s;
+  padding-bottom: 15px;
+  opacity:  0;
+  line-height: 17px;
+}
+
+.change-profile__input__invalid .change-profile__error{
+  opacity: 1;
+}

@@ -1,0 +1,33 @@
+.user-info__edit-button{
+  margin-top: 24px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  width: 38px;
+  height: 18px;
+  font-size: 30px;
+  display: block;
+  cursor: pointer;
+}
+.user-info__edit{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  align-items: center;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.user-info__edit-button:focus {
+  outline-color: greenyellow;
+}
+
+@media screen and (max-width: 980px) {
+  .user-info__edit-button {
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

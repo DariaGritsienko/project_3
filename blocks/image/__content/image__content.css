@@ -1,0 +1,11 @@
+.image__content {
+  max-width: 80vw;
+  max-height: 80vh;
+  position: relative;
+}
+
+@media screen and (max-width: 540px) {
+  .image__content {
+    width: calc(100% - 60px);
+  }
+}

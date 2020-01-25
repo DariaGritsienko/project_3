@@ -1,0 +1,21 @@
+@import url(./__content/change-profile__content.css);
+@import url(./__close/change-profile__close.css);
+@import url(./__title/change-profile__title.css);
+@import url(./__form/change-profile__form.css);
+@import url(./__input/change-profile__input.css);
+@import url(./__button/change-profile__button.css);
+@import url(./_is-opened/change-profile_is-opened.css);
+@import url(./__error/change-profile__error.css);
+
+.change-profile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}

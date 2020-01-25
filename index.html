@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body>
+  <div class="root">
+    <header class="header root__section">
+      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+    </header>
+    <div class="profile root__section">
+      <div class="user-info">
+        <div class="user-info__photo"></div>
+        <div class="user-info__data">
+          <h1 class="user-info__name"></h1>
+          <p class="user-info__job"></p>
+          <button class="user-info__edit-button">
+            <p class='user-info__edit'>Edit</p>
+          </button>
+        </div>
+        <button class="button user-info__button">+</button>
+      </div>
+    </div>
+    <div class="places-list root__section">
+
+    </div>
+    <div class="popup">
+      <div class="popup__content">
+        <img src="./images/close.svg" alt="" class="popup__close">
+        <h3 class="popup__title">Новое место</h3>
+        <form id='new' novalidate class="popup__form" name="new">
+          <input id="name" type="text" required name="name" minlength='2' maxlength="30"
+            class="popup__input popup__input_type_name" placeholder="Название">
+          <span id="name" class='popup__error error_name'></span>
+          <input id="link" type="url" required name="link" class="popup__input popup__input_type_link-url"
+            placeholder="Ссылка на картинку">
+          <span id="link" class='popup__error error_link'></span>
+          <button id='submit' type='submit' class="button popup__button">+</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="change-profile">
+      <div class="change-profile__content">
+        <img src="./images/close.svg" alt="" class="change-profile__close">
+        <h3 class="change-profile__title">Редактировать профиль</h3>
+        <form id='change' novalidate class="change-profile__form" name="change">
+          <div class='form-container'>
+            <input id="username" type="text" required name="username" minlength='2' maxlength="30"
+              class="change-profile__input change-profile__input_type_name" placeholder="Имя">
+            <span id="error-username" class='change-profile__error error_username'></span>
+          </div>
+          <div class='form-container'>
+            <input id="about" type="text" required name="about" minlength='2' maxlength="30"
+              class="change-profile__input change-profile__input_type_link-url" placeholder="О себе">
+            <span id="error-about" class='change-profile__error error_about'></span>
+          </div>
+          <button id='submitProfile' type='submitProfile' name='submitProfile' class="button change-profile__button">
+            <p class='change-profile__save'>Сохранить</p>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup-image">
+      <div class="popup-image__content">
+        <img src="./images/close.svg" alt="" class="popup-image__close">
+        <h3 class="popup-image__title">Обновить аватар</h3>
+        <form id='new' class="popup-image__form" name="new">
+          <input id="linkAvatar" type="url" required name="linkAvatar"
+            class="popup-image__input" placeholder="Ссылка на аватар">
+          <span id="name" class='popup-image__error error_name'></span>
+          <button id='submit' type='submit' class="button popup-image__button">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class='image'>
+      <div class='image__content'>
+        <img src="./images/close.svg" alt="" class="image__close">
+        <div class="image__picture"></div>
+      </div>
+    </div>
+  </div>
+  <script src="./scripts/validate.js"></script>
+  <script src="./scripts/api.js"></script>
+  <script src="./scripts/card.js"></script>
+  <script src="./scripts/avatar.js"></script>
+  <script src="./scripts/popup.js"></script>
+  <script src="./scripts/inputHandler.js"></script>
+  <script src="./scripts/validateAvatar.js"></script>
+  <script src="./scripts/cardList.js"></script>
+  <script src="./scripts/image.js"></script>
+
+</body>
+
+</html>
