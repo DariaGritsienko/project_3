@@ -4,8 +4,9 @@
   "description": "1. Актуальная версия проекта 0.0.1\r 2. Третий проект с Яндекс.Практикумом\r 3. Испольлуются CSS, HTML, GIT. Страницы адаптивная",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open --watch"
+     "dev": "webpack-dev-server --mode development --open --watch",
+     "build": "rimraf dist webpack --mode production",
+     "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
