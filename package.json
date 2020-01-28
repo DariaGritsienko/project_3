@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/DariaGritsienko/project_3/issues"
   },
-  "homepage": "https://github.com/DariaGritsienko/project_3#readme",
+  "homepage": "https://DariaGritsienko.github.io/project_3",
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
