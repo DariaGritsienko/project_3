@@ -12,6 +12,8 @@ function validateAvatar(event){
   }
 }
 
+import {avatar} from './avatar.js';
+
 formAvatar.addEventListener('input', validateAvatar);
 
 formAvatar.addEventListener('submit', function(event){

@@ -1,28 +1,25 @@
-class Card {
+export default class Card {
   constructor(api){
     this.api = api;
   }
   like(event) {
-
     if(event.target.classList.contains('place-card__like-icon')){
       if(!(event.target.classList.contains('place-card__like-icon_liked'))){
         let cardId = event.target.closest('.place-card').id;
         event.target.classList.toggle('place-card__like-icon_liked');
-        this.api.putLike(cardId);
-
+        api.putLike(cardId);
       }else if(event.target.classList.contains('place-card__like-icon_liked')){
         let cardIdDelete = event.target.closest('.place-card').id;
         event.target.classList.toggle('place-card__like-icon_liked');
-        this.api.deleteLike(cardIdDelete);
+        api.deleteLike(cardIdDelete);
       }
-
   }
 }
   remove(event) {
     if (event.target.classList.contains('place-card__delete-icon')) {
       if(window.confirm("Вы действительно хотите удалить эту карточку?")){
         let cardId = event.target.closest('.place-card').id;
-        this.api.deleteCard(cardId)
+        api.deleteCard(cardId)
           .then(result =>{
             document.getElementById(`${cardId}`).remove();
           });
@@ -53,7 +50,11 @@ class Card {
   }
 }
 
-const card = new Card(api);
+import {api} from './api.js';
+
+export const card = new Card(api);
+
+import {inputHandler} from './inputHandler';
 const place = document.querySelector('.root');
 const likeIcon = document.querySelector('.place-card__like-icon');
 
