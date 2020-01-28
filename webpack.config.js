@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // добавили плагин
+const webpack = require("webpack");
 module.exports = {
   entry: { main: './src/index.js' },
   output: {
@@ -40,6 +41,9 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html'
     }),
-    new WebpackMd5Hash()
+    new WebpackMd5Hash(),
+    new webpack.DefinePlugin({
+      'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
   ]
 };
