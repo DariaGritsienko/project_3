@@ -1,4 +1,4 @@
-function inputHandler(event) {
+export default function inputHandler(event) {
   const popupButton = document.querySelector('.popup__button');
   const name = event.currentTarget.elements.name;
   const link = event.currentTarget.elements.link;
@@ -10,5 +10,7 @@ function inputHandler(event) {
     popupButton.classList.add('popup__button_activate');
   }
 }
+
+const form = document.forms.new;
 
 form.addEventListener('input', inputHandler);
