@@ -1,5 +1,4 @@
 import "./style.css";
-
 import "../scripts/api.js";
 import "../scripts/avatar.js";
 import "../scripts/card.js";
