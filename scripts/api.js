@@ -1,4 +1,4 @@
-class Api {
+export default class Api {
   constructor(options) {
     this.options = options;
   }
@@ -161,7 +161,10 @@ class Api {
   }
 
 }
-const api = new Api({
+import CardList from './cardList.js';
+import {popup} from './cardList.js';
+import {card} from './card.js';
+export const api = new Api({
   baseUrl: 'https://praktikum.tk/cohort6',
   headers: {
     authorization: '7935ab21-777e-4b7a-aed5-8f3dc30b0a17',
@@ -169,7 +172,7 @@ const api = new Api({
   }
 });
 const form = document.forms.new;
-
+let placesList = new CardList(document.querySelector(".places-list"), card, api, popup);
 api.getInfo();
 
 api.getInitialCards()

@@ -1,6 +1,6 @@
 const root = document.querySelector('.root');
 
-function imageOpened(event){
+export default function imageOpened(event){
   const imagePicture = document.querySelector('.image__picture');
   const image = root.querySelector('.image');
     if (event.target.classList.contains('place-card__image')){

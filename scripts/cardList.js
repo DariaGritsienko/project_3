@@ -1,8 +1,13 @@
-class CardList {
-  constructor(place, card, api) {
+import {card} from './card.js';
+import {api} from './api.js';
+import {popup} from './popup.js';
+
+export default class CardList {
+  constructor(place, card, api, popup) {
     this.card = card;
     this.api = api;
     this.place = place;
+    this.popup = popup;
   }
   addCard(event) {
     const { name, link } = event.currentTarget.elements;
@@ -25,4 +30,5 @@ class CardList {
   }
 }
 
-const placesList = new CardList(document.querySelector(".places-list"), card, api);
+export const placesList = new CardList(document.querySelector(".places-list"), card, api, popup);
+export {popup};

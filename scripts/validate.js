@@ -1,6 +1,8 @@
 class Validation {
-  constructor(words){
+  constructor(words, api, changeProfile){
     this.words = words;
+    this.api = api;
+    this.changeProfile = changeProfile;
   }
   handleValidate(word) {
     const inputs = Array.from(document.forms.change.elements);
@@ -58,12 +60,14 @@ class Validation {
         name: `${username.value}`,
         about: `${about.value}`
       };
-      api.patchProfile(user)
-      changeProfile.closeProfile();
+      this.api.patchProfile(user)
+      this.changeProfile.closeProfile();
     }
   }
 }
 
+import {api} from './api.js';
+import {changeProfile} from './popup.js';
 
 const formInfo = document.forms.change;
 const username = document.querySelector('#username');
@@ -73,7 +77,7 @@ const words = {
   validationLenght: 'Должно быть от 2 до 30 символов',
   validationRequired: 'Это обязательное поле'
 };
-const validation = new Validation(words);
+const validation = new Validation(words, api, changeProfile);
 username.addEventListener('input', function (event) {
   validation.handleValidate(event.target);
 });

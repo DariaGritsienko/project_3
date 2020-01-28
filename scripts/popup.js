@@ -1,4 +1,4 @@
-class Popup {
+export default class Popup {
   constructor(popup) {
     this.popup = popup;
   }
@@ -31,9 +31,11 @@ class Popup {
   }
 }
 
-const changeProfile = new Popup(document.querySelector('.change-profile'));
-const popup = new Popup(document.querySelector('.popup'));
-const popupAvatar = new Popup(document.querySelector('.popup-image'));
+import {imageOpened} from './image.js';
+
+export const changeProfile = new Popup(document.querySelector('.change-profile'));
+export const popup = new Popup(document.querySelector('.popup'));
+export const popupAvatar = new Popup(document.querySelector('.popup-image'));
 const openButton = document.querySelector('.user-info__button');
 const closeButton = document.querySelector('.popup__close');
 const editButton = document.querySelector('.user-info__edit-button');

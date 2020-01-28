@@ -1,6 +1,7 @@
-class Avatar{
-  constructor(api){
+export default class Avatar{
+  constructor(api, popupAvatar){
     this.api = api;
+    this.popupAvatar = popupAvatar;
   }
 
   updateAvatar(event){
@@ -11,8 +12,12 @@ class Avatar{
       .then(result => {
         document.querySelector('.user-info__photo').style.backgroundImage = `url(${result.avatar})`;
       });
-    popupAvatar.closeAvatar();
+    this.popupAvatar.closeAvatar();
   }
 }
 
-const avatar = new Avatar(api);
+import Popup from './popup.js';
+import {api} from './api.js';
+
+let popupAvatar = new Popup(document.querySelector('.popup-image'));
+ export const avatar = new Avatar(api, popupAvatar);
