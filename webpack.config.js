@@ -3,6 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // добавили плагин
 const webpack = require("webpack");
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// подключаем плагин
+const isDev = process.env.NODE_ENV === 'development';
+// создаем переменную для development-сборки
 module.exports = {
   entry: { main: './src/index.js' },
   output: {
@@ -19,12 +23,25 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        use:  [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // добавили минификацию CSS
+        test: /\.css$/i,
+        use: [
+          (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+          'css-loader',
+          'postcss-loader'
+        ]
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
-        loader: 'file-loader?name=./images/[name].[ext]'
+        use: [
+          'file-loader?name=./images/[name].[ext]', // указали папку, куда складывать изображения
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              disable: true,
+            },
+          }
+        ]
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
@@ -35,6 +52,14 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({ //
       filename: 'style.[contenthash].css',
+    }),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: require('cssnano'),
+      cssProcessorPluginOptions: {
+        preset: ['default'],
+      },
+      canPrint: true
     }),
     new HtmlWebpackPlugin({
       inject: false,
