@@ -33,13 +33,33 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader?name=./images/[name].[ext]', // указали папку, куда складывать изображения
           {
-            loader: 'image-webpack-loader',
+            loader: "file-loader?name=./images/[name].[ext]",
             options: {
-              bypassOnDebug: true,
-              disable: true,
-            },
+              esModule: false
+            }
+          },
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              optipng: {
+                enabled: false
+              },
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false
+              },
+              webp: {
+                quality: 75
+              }
+            }
           }
         ]
       },
