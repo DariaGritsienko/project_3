@@ -165,7 +165,7 @@ import CardList from './cardList.js';
 import {popup} from './cardList.js';
 import {card} from './card.js';
 export const api = new Api({
-  baseUrl: 'https://praktikum.tk/cohort6',
+  baseUrl: process.env.NODE_ENV === 'development' ? 'http://praktikum.tk/cohort6' : 'https://praktikum.tk/cohort6',
   headers: {
     authorization: '7935ab21-777e-4b7a-aed5-8f3dc30b0a17',
     'Content-Type': 'application/json'
